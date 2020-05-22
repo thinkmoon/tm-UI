@@ -1,0 +1,107 @@
+/**
+* tm-ui by 醉月思
+**/
+@import "./mixin";
+
+$color-list: (
+  (red, $color-red),
+  (cyan, $color-cyan),
+  (blue, $color-blue),
+  (yellow, $color-yellow),
+  (orange, $color-orange)
+);
+
+$size-list: (
+  (xs, $xs-size),
+  (sm, $sm-size),
+  (n, $normal-size),
+  (xxl, $xxl-size)
+);
+
+$direction-list: (top, bottom, left, right);
+
+.flex {
+  @include flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
+  align-content: center;
+}
+// 字体尺寸
+@each $name, $size in $size-list {
+  .text-#{$name} {
+    font-size: $size;
+  }
+}
+.text-bold {
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+// 字体颜色
+@each $name, $color in $color-list {
+  .text-#{$name} {
+    color: $color;
+  }
+}
+// 背景色
+@each $name, $color in $color-list {
+  .bg-#{$name} {
+    @include bg-light(#{$color});
+  }
+}
+// margin
+@each $direction in $direction-list {
+  @each $name, $size in $size-list {
+    .margin-#{$direction}-#{$name} {
+      margin-#{$direction}: $size;
+    }
+  }
+}
+@each $name, $size in $size-list {
+  .margin-lr-#{$name} {
+    margin-left: $size;
+    margin-right: $size;
+  }
+}
+@each $name, $size in $size-list {
+  .margin-tb-#{$name} {
+    margin-top: $size;
+    margin-bottom: $size;
+  }
+}
+// padding
+@each $direction in $direction-list {
+  @each $name, $size in $size-list {
+    .padding-#{$direction}-#{$name} {
+      padding-#{$direction}: $size;
+    }
+  }
+}
+@each $name, $size in $size-list {
+  .padding-lr-#{$name} {
+    padding-left: $size;
+    padding-right: $size;
+  }
+}
+@each $name, $size in $size-list {
+  .padding-tb-#{$name} {
+    padding-top: $size;
+    padding-bottom: $size;
+  }
+}
