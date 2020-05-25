@@ -8,7 +8,9 @@ $color-list: (
   (cyan, $color-cyan),
   (blue, $color-blue),
   (yellow, $color-yellow),
-  (orange, $color-orange)
+  (orange, $color-orange),
+  (gray, $color-gray),
+  (green,$color-green)
 );
 
 $size-list: (
@@ -22,6 +24,9 @@ $direction-list: (top, bottom, left, right);
 
 .flex {
   @include flex;
+}
+.margin-auto {
+  margin: 0 auto;
 }
 
 .flex-column {
