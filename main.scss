@@ -20,6 +20,10 @@ $size-list: (
   (xxl, $xxl-size)
 );
 
+$flex-list: (
+  between,around
+);
+
 $direction-list: (top, bottom, left, right);
 
 .flex {
@@ -33,12 +37,13 @@ $direction-list: (top, bottom, left, right);
   flex-direction: column;
 }
 
-.justify-between {
-  justify-content: space-between;
+@each $var in $flex-list {
+  .justify-#{$var} {
+    justify-content: space-#{$var};
+  };
 }
-
-.justify-around {
-  justify-content: space-around;
+.justify-center {
+  justify-content: center;
 }
 
 .align-center {
@@ -91,6 +96,11 @@ $direction-list: (top, bottom, left, right);
   }
 }
 // padding
+@each $name, $size in $size-list {
+  .padding-#{$name} {
+    padding: $size;
+  }
+}
 @each $direction in $direction-list {
   @each $name, $size in $size-list {
     .padding-#{$direction}-#{$name} {
