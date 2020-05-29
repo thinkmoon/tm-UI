@@ -36,6 +36,9 @@ $direction-list: (top, bottom, left, right);
 .flex-column {
   flex-direction: column;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
 
 @each $var in $flex-list {
   .justify-#{$var} {
