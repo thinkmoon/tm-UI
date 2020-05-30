@@ -54,6 +54,9 @@ $direction-list: (top, bottom, left, right);
   align-items: center;
   align-content: center;
 }
+.align-end {
+  align-items: flex-end;
+}
 // 字体尺寸
 @each $name, $size in $size-list {
   .text-#{$name} {
