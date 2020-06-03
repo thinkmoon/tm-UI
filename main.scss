@@ -1,7 +1,7 @@
 /**
 * tm-ui by 醉月思
 **/
-@import "./mixin";
+@import './mixin';
 
 $color-list: (
   (red, $color-red),
@@ -10,20 +10,18 @@ $color-list: (
   (yellow, $color-yellow),
   (orange, $color-orange),
   (gray, $color-gray),
-  (green,$color-green)
+  (green, $color-green)
 );
 
 $size-list: (
   (xs, $xs-size),
   (sm, $sm-size),
   (n, $normal-size),
-  (xl,$xl-size),
+  (xl, $xl-size),
   (xxl, $xxl-size)
 );
 
-$flex-list: (
-  between,around
-);
+$flex-list: (between, around);
 
 $direction-list: (top, bottom, left, right);
 
@@ -40,11 +38,20 @@ $direction-list: (top, bottom, left, right);
 .flex-wrap {
   flex-wrap: wrap;
 }
+.flex-1 {
+  flex: 1;
+}
+.flex-2 {
+  flex: 2;
+}
+.margin-0 {
+  margin: 0 !important;
+}
 
 @each $var in $flex-list {
   .justify-#{$var} {
     justify-content: space-#{$var};
-  };
+  }
 }
 .justify-center {
   justify-content: center;
