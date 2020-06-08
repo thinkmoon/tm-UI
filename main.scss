@@ -1,7 +1,7 @@
 /**
 * tm-ui by 醉月思
 **/
-@import './mixin';
+@import "./mixin";
 
 $color-list: (
   (red, $color-red),
@@ -133,4 +133,8 @@ $direction-list: (top, bottom, left, right);
     padding-top: $size;
     padding-bottom: $size;
   }
+}
+
+.pointer {
+  cursor: pointer;
 }
