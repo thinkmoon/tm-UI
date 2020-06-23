@@ -10,13 +10,15 @@ $color-list: (
   (yellow, $color-yellow),
   (orange, $color-orange),
   (gray, $color-gray),
-  (green, $color-green)
+  (green, $color-green),
+  (white, $color-white)
 );
 
 $size-list: (
   (xs, $xs-size),
   (sm, $sm-size),
   (n, $normal-size),
+  (lg, $lg-size),
   (xl, $xl-size),
   (xxl, $xxl-size)
 );
