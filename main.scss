@@ -14,14 +14,7 @@ $color-list: (
   (white, $color-white)
 );
 
-$size-list: (
-  (xs, $xs-size),
-  (sm, $sm-size),
-  (n, $normal-size),
-  (lg, $lg-size),
-  (xl, $xl-size),
-  (xxl, $xxl-size)
-);
+$size-list: ((xs, $xs-size), (sm, $sm-size), (n, $normal-size), (lg, $lg-size), (xl, $xl-size), (xxl, $xxl-size));
 
 $flex-list: (between, around);
 
@@ -89,6 +82,13 @@ $direction-list: (top, bottom, left, right);
 @each $name, $color in $color-list {
   .bg-#{$name} {
     @include bg-light(#{$color});
+  }
+  .bg-#{$name}:hover,
+  .bg-#{$name}:active,
+  .bg-#{$name}:focus {
+    background-color: lighten($color: $color, $amount: 5%);
+    color: #fff;
+    border-color: #fff;
   }
 }
 // margin
