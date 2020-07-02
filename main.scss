@@ -90,6 +90,13 @@ $direction-list: (top, bottom, left, right);
   .bg-#{$name} {
     @include bg-light(#{$color});
   }
+  .bg-#{$name}:hover,
+  .bg-#{$name}:active,
+  .bg-#{$name}:focus {
+    background-color: lighten($color: $color, $amount: 5%);
+    color: #fff;
+    border-color: #fff;
+  }
 }
 // margin
 @each $direction in $direction-list {
