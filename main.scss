@@ -14,7 +14,14 @@ $color-list: (
   (white, $color-white)
 );
 
-$size-list: ((xs, $xs-size), (sm, $sm-size), (n, $normal-size), (lg, $lg-size), (xl, $xl-size), (xxl, $xxl-size));
+$size-list: (
+  (xs, $xs-size),
+  (sm, $sm-size),
+  (n, $normal-size),
+  (lg, $lg-size),
+  (xl, $xl-size),
+  (xxl, $xxl-size)
+);
 
 $flex-list: (between, around);
 
