@@ -119,6 +119,9 @@ $direction-list: (top, bottom, left, right);
   }
 }
 // padding
+.padding-0 {
+  padding: 0 !important;
+}
 @each $name, $size in $size-list {
   .padding-#{$name} {
     padding: $size;
