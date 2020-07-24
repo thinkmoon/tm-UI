@@ -3,8 +3,6 @@
 @mixin flex {
 	display: flex;
 }
-
-@mixin bg-light($color) {
-	background-color: $color;
-	color: #fff;
+@function contrast-color($color) {
+  @return if(lightness($color) < 60%, #fff, #000)
 }

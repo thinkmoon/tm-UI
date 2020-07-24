@@ -4,29 +4,25 @@
 @import "./mixin";
 
 $color-list: (
-  (red, $color-red),
-  (cyan, $color-cyan),
-  (blue, $color-blue),
-  (yellow, $color-yellow),
-  (orange, $color-orange),
-  (gray, $color-gray),
-  (green, $color-green),
-  (white, $color-white)
+  ("red", $color-red),
+  ("cyan", $color-cyan),
+  ("blue", $color-blue),
+  ("yellow", $color-yellow),
+  ("orange", $color-orange),
+  ("gray", $color-gray),
+  ("green", $color-green),
+  ("white", $color-white),
+  ("black", $color-black)
 );
 
-$size-list: (
-  (xs, $xs-size),
-  (sm, $sm-size),
-  (n, $normal-size),
-  (lg, $lg-size),
-  (xl, $xl-size),
-  (xxl, $xxl-size)
-);
+$size-list: ((xs, $xs-size), (sm, $sm-size), (n, $normal-size), (lg, $lg-size), (xl, $xl-size), (xxl, $xxl-size));
 
 $flex-list: (between, around);
 
 $direction-list: (top, bottom, left, right);
 
+$align-list: (left, center, right);
+// flex
 .flex {
   @include flex;
 }
@@ -42,14 +38,14 @@ $direction-list: (top, bottom, left, right);
 .flex-2 {
   flex: 2;
 }
-
-.margin-auto {
-  margin: 0 auto;
+.flex-center {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
 }
-.margin-0 {
-  margin: 0 !important;
-}
-
+// justify
 @each $var in $flex-list {
   .justify-#{$var} {
     justify-content: space-#{$var};
@@ -58,7 +54,13 @@ $direction-list: (top, bottom, left, right);
 .justify-center {
   justify-content: center;
 }
-
+.justify-end {
+  justify-content: flex-end;
+}
+// align
+.align-start {
+  align-items: flex-start;
+}
 .align-center {
   align-items: center;
   align-content: center;
@@ -66,18 +68,20 @@ $direction-list: (top, bottom, left, right);
 .align-end {
   align-items: flex-end;
 }
+@each $var in $align-list {
+  .text-#{$var} {
+    text-align: #{$var};
+  }
+}
 // 字体尺寸
 @each $name, $size in $size-list {
   .text-#{$name} {
     font-size: $size;
   }
 }
+
 .text-bold {
   font-weight: bold;
-}
-
-.text-center {
-  text-align: center;
 }
 // 字体颜色
 @each $name, $color in $color-list {
@@ -85,20 +89,33 @@ $direction-list: (top, bottom, left, right);
     color: $color;
   }
 }
+// 线性颜色
+@each $name, $color in $color-list {
+  .line-#{$name} {
+    color: $color !important;
+    border-color: $color !important;
+  }
+}
 // 背景色
 @each $name, $color in $color-list {
   .bg-#{$name} {
-    @include bg-light(#{$color});
+    background-color: $color;
+    color: contrast-color($color);
   }
-  .bg-#{$name}:hover,
-  .bg-#{$name}:active,
-  .bg-#{$name}:focus {
+  .bg-#{$name}-hover:hover,
+  .bg-#{$name}-active:active,
+  .bg-#{$name}-focus:focus {
     background-color: lighten($color: $color, $amount: 5%);
-    color: #fff;
-    border-color: #fff;
+    color: contrast-color($color);
+    border-color: contrast-color($color);
   }
 }
 // margin
+@each $name, $size in $size-list {
+  .margin-#{$name} {
+    margin: $size;
+  }
+}
 @each $direction in $direction-list {
   @each $name, $size in $size-list {
     .margin-#{$direction}-#{$name} {
@@ -118,9 +135,17 @@ $direction-list: (top, bottom, left, right);
     margin-bottom: $size;
   }
 }
+.margin-auto {
+  margin: 0 auto;
+}
+.margin-0 {
+  margin: 0 !important;
+}
 // padding
-.padding-0 {
-  padding: 0 !important;
+@each $name, $size in $size-list {
+  .padding-#{$name} {
+    padding: $size;
+  }
 }
 @each $name, $size in $size-list {
   .padding-#{$name} {
@@ -145,6 +170,28 @@ $direction-list: (top, bottom, left, right);
     padding-top: $size;
     padding-bottom: $size;
   }
+}
+.padding-0 {
+  padding: 0 !important;
+}
+// border
+.solid {
+  border: 1px solid #f0f0f0;
+}
+@each $direction in $direction-list {
+  .solid-#{$direction} {
+    border-#{$direction}: 1px solid #f0f0f0;
+  }
+}
+// border-radius
+.radius {
+  border-radius: $uni-border-radius-base;
+}
+.capsule {
+  border-radius: 50vh;
+}
+.round {
+  border-radius: 50%;
 }
 
 .pointer {

@@ -6,6 +6,7 @@ $color-yellow: #fbbd08 !default;
 $color-gray: #666 !default;
 $color-green: #39b54a !default;
 $color-white: #fff !default;
+$color-black: #000 !default;
 
 
 $xs-size: 8px !default;
@@ -14,3 +15,8 @@ $normal-size: 16px !default;
 $lg-size: 24px !default;
 $xl-size: 48px !default;
 $xxl-size: 64px !default;
+
+$uni-border-radius-sm: 4rpx;
+$uni-border-radius-base: 6rpx;
+$uni-border-radius-lg: 12rpx;
+$uni-border-radius-circle: 50%;
