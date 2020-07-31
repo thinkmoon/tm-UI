@@ -29,6 +29,9 @@ $align-list: (left, center, right);
 .flex-column {
   flex-direction: column;
 }
+.flex-auto {
+  flex: auto
+}
 .flex-wrap {
   flex-wrap: wrap;
 }
