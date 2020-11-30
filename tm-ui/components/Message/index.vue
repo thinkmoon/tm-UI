@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang='less' scoped>
+<style lang='scss' scoped>
 .tm-message-wrapper {
     position: fixed;
     z-index: 2;

@@ -1,0 +1,210 @@
+/**
+* tm-ui by 醉月思
+**/
+@import "./mixin";
+
+$color-list: (
+  ("red", $color-red),
+  ("cyan", $color-cyan),
+  ("blue", $color-blue),
+  ("yellow", $color-yellow),
+  ("orange", $color-orange),
+  ("gray", $color-gray),
+  ("green", $color-green),
+  ("white", $color-white),
+  ("black", $color-black)
+);
+
+$size-list: ((xs, $xs-size), (sm, $sm-size), (n, $normal-size), (lg, $lg-size), (xl, $xl-size), (xxl, $xxl-size));
+
+$flex-list: (between, around);
+
+$direction-list: (top, bottom, left, right);
+
+$align-list: (left, center, right);
+// flex
+.flex {
+  @include flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-auto {
+  flex: auto
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-1 {
+  flex: 1;
+}
+.flex-2 {
+  flex: 2;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+// justify
+@each $var in $flex-list {
+  .justify-#{$var} {
+    justify-content: space-#{$var};
+  }
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+// align
+.align-start {
+  align-items: flex-start;
+}
+.align-center {
+  align-items: center;
+  align-content: center;
+}
+.align-end {
+  align-items: flex-end;
+}
+@each $var in $align-list {
+  .text-#{$var} {
+    text-align: #{$var};
+  }
+}
+// 字体尺寸
+@each $name, $size in $size-list {
+  .text-#{$name} {
+    font-size: $size;
+  }
+}
+
+.text-bold {
+  font-weight: bold;
+}
+// 字体颜色
+@each $name, $color in $color-list {
+  .text-#{$name} {
+    color: $color;
+  }
+}
+// 线性颜色
+@each $name, $color in $color-list {
+  .line-#{$name} {
+    color: $color !important;
+    border-color: $color !important;
+  }
+}
+// 背景色
+@each $name, $color in $color-list {
+  .bg-#{$name} {
+    background-color: $color;
+    color: contrast-color($color);
+  }
+  .bg-#{$name}-hover:hover,
+  .bg-#{$name}-active:active,
+  .bg-#{$name}-focus:focus {
+    background-color: lighten($color: $color, $amount: 5%);
+    color: contrast-color($color);
+    border-color: contrast-color($color);
+  }
+}
+// margin
+@each $name, $size in $size-list {
+  .margin-#{$name} {
+    margin: $size;
+  }
+}
+@each $direction in $direction-list {
+  @each $name, $size in $size-list {
+    .margin-#{$direction}-#{$name} {
+      margin-#{$direction}: $size;
+    }
+  }
+}
+@each $name, $size in $size-list {
+  .margin-lr-#{$name} {
+    margin-left: $size;
+    margin-right: $size;
+  }
+}
+@each $name, $size in $size-list {
+  .margin-tb-#{$name} {
+    margin-top: $size;
+    margin-bottom: $size;
+  }
+}
+.margin-auto {
+  margin: 0 auto;
+}
+.margin-0 {
+  margin: 0 !important;
+}
+// padding
+@each $name, $size in $size-list {
+  .padding-#{$name} {
+    padding: $size;
+  }
+}
+@each $name, $size in $size-list {
+  .padding-#{$name} {
+    padding: $size;
+  }
+}
+@each $direction in $direction-list {
+  @each $name, $size in $size-list {
+    .padding-#{$direction}-#{$name} {
+      padding-#{$direction}: $size;
+    }
+  }
+}
+@each $name, $size in $size-list {
+  .padding-lr-#{$name} {
+    padding-left: $size;
+    padding-right: $size;
+  }
+}
+@each $name, $size in $size-list {
+  .padding-tb-#{$name} {
+    padding-top: $size;
+    padding-bottom: $size;
+  }
+}
+.padding-0 {
+  padding: 0 !important;
+}
+// border
+.solid {
+  border: 1px solid #f0f0f0;
+}
+@each $direction in $direction-list {
+  .solid-#{$direction} {
+    border-#{$direction}: 1px solid #f0f0f0;
+  }
+}
+// border-radius
+.radius {
+  border-radius: $border-radius-base;
+}
+.capsule {
+  border-radius: 50vh;
+}
+.round {
+  border-radius: 50%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.over-hideen {
+  overflow: hidden;
+}

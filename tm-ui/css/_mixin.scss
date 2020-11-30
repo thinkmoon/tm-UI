@@ -1,0 +1,8 @@
+@import "./variables";
+
+@mixin flex {
+	display: flex;
+}
+@function contrast-color($color) {
+  @return if(lightness($color) < 60%, #fff, #000)
+}
